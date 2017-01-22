@@ -1,20 +1,32 @@
 package br.com.buscape;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Cena {
 
-    private final long id;
-    private final String content;
+    private static final AtomicLong counter = new AtomicLong();
+    
+	private final long id = counter.incrementAndGet();
+	private final String content;
+	private final Submarino submarino = new Submarino();
 
-    public Cena(long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
+	public Cena(String content) {
+		this.content = content;
 
-    public long getId() {
-        return id;
-    }
+		for (int i = 0; i < content.length(); i++) {
+			submarino.executar(content.charAt(i));
+		}
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public long getId() {
+		return id;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public String toString() {
+		return submarino.toString();
+	}
 }

@@ -1,21 +1,27 @@
-Pra não ser uma solução trivial apenas, vou colocar os seguintes objetivos adicionais:
+Ia criar uma interface gráfica web e também um banco de dados, porém observei que talvez isso saia do escopo necessário para o teste, desta forma, deixei como extra apenas o serviço web que pode ser acessado pelo browser;
 
-Cada exploração será considerada uma "Cena", que ocorrerá e poderá ser acompanhada em tempo real, sendo identificada por um nome dado.
+Deixei como opção a execução via comando, que processa cada linha de entrada e entrega a resposta, uma linha vazia encerra a execução.
 
-Haverá interface web gráfica para visualizar a cena no estágio atual, próximos passos, voltar e avançar com controles web fáceis de usar.
-
-Todas as cenas serão armazenadas em um banco SQLLite.
-
-Começando implementação com uma aplicação springboot como "Hello world", já com um serviço rest pra criação de cenas.
-
-Para executar:
+----- Para executar como aplicação web:
 
 mvn spring-boot:run
 
 Acessar no browser:
 
-http://localhost:8080/cena
+http://localhost:8080/cena?entrada=DDDDRRMUULMMM
 
-Testar:
+----- Para executar via comando:
+
+mvn package
+java -jar target\submarino-0.1.0.jar
+
+LLLL
+0 0 0 NORTE
+DDDDUU
+0 0 -2 NORTE
+LLMDDLMMDDDD
+2 -1 -6 LESTE
+
+----- Para executar teste unitário:
 
 mvn test
